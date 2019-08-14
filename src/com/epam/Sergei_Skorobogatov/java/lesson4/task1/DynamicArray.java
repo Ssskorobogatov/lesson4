@@ -1,10 +1,35 @@
 package com.epam.Sergei_Skorobogatov.java.lesson4.task1;
 
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class DynamicArray {
-    private String[] data = new String[3];
-    private int size = 0;
+    public String[] data = new String[3];
+    public int size = 0;
+
+    public static void main(String[] args) {
+
+
+        DynamicArray vector = new DynamicArray();
+        vector.add("1");
+        vector.add("2");
+        vector.add("15");
+        vector.add("JavaPractice");
+        vector.add("222222222222222");
+        vector.add("66666666666");
+
+      //  System.out.println(vector.getLast());
+        System.out.println(vector.get(2));
+        vector.remove(2);
+        //System.out.println(vector.size());
+        System.out.println(vector.get(0));
+        System.out.println(vector.get(1));
+        System.out.println(vector.get(2));
+        System.out.println(vector.get(3));
+        System.out.println(vector.toString());
+    }
+
 
     public String getLast() {
         return data[size-1];
@@ -30,53 +55,23 @@ public class DynamicArray {
         size++;
     }
 
- /*  public void remove(String s) {
-        if (data.length <= size){
+        public void remove(int j) {
             String[] tmp1 = data;
-            data = new String[size];
-            for (int i = 0; i < tmp1.length; i++) {
-                data[i] = tmp1[i - 1];
+            data = new String[data.length-1];
+            for (int i = 0; i < j; i++){
+            data[i] = tmp1[i];
             }
-            data[size] = s;
-            size--;
-        }
-    }*/
-
-    public static void main(String[] args) {
-        DynamicArray vector = new DynamicArray();
-        vector.add("1");
-        vector.add("2");
-        vector.add("15");
-        vector.add("Selenium");
-        vector.add("222222222222222");
-        vector.add("66666666666");
-       // System.out.println(vector.get(5));
-       // System.out.println(vector.getLast());
-        System.out.println(vector.size());
-        //vector.remove("2");
-
-
+            for (int i = j+1; i < tmp1.length; i++){
+                data[i-1] = tmp1[i];
+            }
     }
-
-
-
-
-
-    /*private void Remove() {
-        String[] alphabet = {"a", "b", "c", "d"};
-        List list = Arrays.asList(alphabet);
-        list = new ArrayList(list);
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+        @Override
+        public String toString() {
+        return Arrays.toString(data);
         }
-        System.out.println();
-        list.remove(2);
-        list.forEach(s -> System.out.println(s));
-    }
 
-    private void Add() {
 
-    }*/
+
 }
 
 
